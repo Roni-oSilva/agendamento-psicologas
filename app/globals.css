@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sage-50: #f4f7f4;
+  --color-sage-100: #e6ede6;
+  --color-sage-200: #cddccd;
+  --color-sage-300: #a9c1aa;
+  --color-sage-500: #6b8f6e;
+  --color-sage-600: #557857;
+  --color-sage-700: #44603f;
+  --color-sage-800: #364d35;
+  --color-sand-50: #fbf8f3;
+  --color-sand-100: #f5efe4;
+  --color-sand-200: #ebe0cc;
+  --color-lav-100: #ece8f6;
+  --color-lav-200: #d9d2ee;
+  --color-lav-500: #8b7cc0;
+  --color-lav-700: #5e4f97;
+  --color-ink: #26302a;
+  --color-ink-soft: #4d5a52;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--color-sand-50); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--font-serif); letter-spacing: -0.01em; }
+
+:focus-visible { outline: 3px solid var(--color-lav-500); outline-offset: 2px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+@utility btn {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl px-5 py-3 text-base font-medium transition active:scale-[.98] disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+@layer components {
+  .btn-primary { @apply btn bg-sage-700 text-white hover:bg-sage-800; }
+  .btn-secondary { @apply btn border border-sage-300 bg-white text-sage-800 hover:bg-sage-50; }
+  .btn-danger { @apply btn border border-red-300 bg-white text-red-800 hover:bg-red-50; }
+  .btn-sm { @apply min-h-10 rounded-xl px-3 py-2 text-sm; }
+  .card { @apply rounded-3xl border border-sage-100 bg-white p-5 shadow-[0_1px_2px_rgba(38,48,42,.04)] sm:p-7; }
+  .field { @apply block w-full rounded-xl border border-sage-300 bg-white px-4 py-3 text-base text-ink placeholder:text-ink-soft/60; }
+  .label { @apply mb-1.5 block text-sm font-medium text-ink; }
+  .hint { @apply mt-1 text-sm text-ink-soft; }
+  .err { @apply mt-1 text-sm text-red-800; }
+  .badge { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium; }
+  .fade-in { animation: fade .25s ease-out; }
+}
+@keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }

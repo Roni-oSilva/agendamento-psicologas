@@ -1,0 +1,25 @@
+# Exemplo de produção simples. Defina as variáveis em um .env (veja .env.example).
+services:
+  db:
+    image: postgres:16
+    environment: { POSTGRES_USER: app, POSTGRES_PASSWORD: ${DB_PASSWORD}, POSTGRES_DB: agenda }
+    volumes: [pgdata:/var/lib/postgresql/data]
+    restart: unless-stopped
+  migrate:
+    build: .
+    command: npm run migrate
+    env_file: .env
+    depends_on: [db]
+  web:
+    build: .
+    env_file: .env
+    ports: ["3000:3000"]
+    depends_on: [migrate]
+    restart: unless-stopped
+  worker:
+    build: .
+    command: npm run worker
+    env_file: .env
+    depends_on: [migrate]
+    restart: unless-stopped
+volumes: { pgdata: {} }
