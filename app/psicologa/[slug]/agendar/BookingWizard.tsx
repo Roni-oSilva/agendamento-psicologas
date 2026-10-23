@@ -163,11 +163,11 @@ export function BookingWizard(p: Props) {
             </dl>
             <p className="rounded-2xl bg-sand-100 p-3 text-sm">Cancelamentos e remarcações pelo link seguro são permitidos até <strong>{p.cancelHours}h</strong> antes da consulta.</p>
             <label className="flex items-start gap-3 text-sm">
-              <input type="checkbox" className="mt-1 h-5 w-5 accent-[#44603f]" checked={consentData} onChange={(e) => setConsentData(e.target.checked)} />
+              <input type="checkbox" className="mt-1 h-5 w-5 accent-[#1b1b1d]" checked={consentData} onChange={(e) => setConsentData(e.target.checked)} />
               <span>Li e concordo com a <a className="underline" href="/privacidade" target="_blank" rel="noopener">Política de Privacidade</a> e os <a className="underline" href="/termos" target="_blank" rel="noopener">Termos de Uso</a>, e autorizo o tratamento dos meus dados para fins de agendamento.</span>
             </label>
             <label className="flex items-start gap-3 text-sm">
-              <input type="checkbox" className="mt-1 h-5 w-5 accent-[#44603f]" checked={consentWa} onChange={(e) => setConsentWa(e.target.checked)} />
+              <input type="checkbox" className="mt-1 h-5 w-5 accent-[#1b1b1d]" checked={consentWa} onChange={(e) => setConsentWa(e.target.checked)} />
               <span>Aceito receber confirmação e lembretes da consulta por WhatsApp (sem conteúdo clínico).</span>
             </label>
             {errors.consent && <p className="err" role="alert">{errors.consent}</p>}

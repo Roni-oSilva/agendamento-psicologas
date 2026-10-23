@@ -36,7 +36,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
       <header className="sticky top-0 z-30 border-b border-sage-100 bg-sand-50/90 backdrop-blur">
         <nav className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3" aria-label="Principal">
-          <Link href={`/psicologa/${p.slug}`} className="font-serif text-lg">{p.display_name}</Link>
+          <Link href={`/psicologa/${p.slug}`} className="text-sm font-light uppercase tracking-[0.35em]">{p.display_name}</Link>
           <div className="hidden items-center gap-5 text-sm md:flex">
             <a href="#sobre">Sobre</a><a href="#especialidades">Especialidades</a><a href="#servicos">Serviços</a>
             <a href="#como-funciona">Como funciona</a>{faq.length > 0 && <a href="#faq">Perguntas</a>}
@@ -49,7 +49,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
         <section className="mx-auto grid max-w-5xl items-center gap-8 px-4 py-12 md:grid-cols-[1fr_320px] md:py-20" aria-labelledby="hero">
           <div>
             <p className="text-sm uppercase tracking-widest text-lav-700">Psicologia{p.show_crp && p.crp ? ` · CRP ${p.crp}` : ""}</p>
-            <h1 id="hero" className="mt-3 text-4xl leading-tight md:text-5xl">{p.display_name}</h1>
+            <h1 id="hero" className="mt-3 text-6xl leading-none md:text-8xl">{p.display_name}</h1>
             {p.headline && <p className="mt-4 text-lg text-ink-soft">{p.headline}</p>}
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href={book} className="btn-primary">Agendar consulta</Link>
@@ -61,7 +61,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             // eslint-disable-next-line @next/next/no-img-element
             <img src={p.photo_url} alt={`Foto profissional de ${p.display_name}`} className="aspect-[4/5] max-h-96 w-full rounded-[2rem] bg-sage-100 object-cover md:max-h-none" />
           ) : (
-            <div className="flex aspect-[4/5] max-h-72 w-full items-center md:max-h-none justify-center rounded-[2rem] bg-gradient-to-br from-sage-100 to-lav-100 font-serif text-6xl text-sage-700" aria-hidden>
+            <div className="flex aspect-[4/5] max-h-72 w-full items-center md:max-h-none justify-center rounded-[2rem] bg-gradient-to-br from-sage-800 to-sage-600 font-[family-name:var(--font-display)] text-7xl text-lav-500" aria-hidden>
               {p.display_name.split(" ").slice(0, 2).map((w: string) => w[0]).join("")}
             </div>
           )}
@@ -112,7 +112,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <h2 className="text-3xl">Como funciona</h2>
           <ol className="mt-6 grid gap-4 md:grid-cols-3">
             {["Escolha o serviço e veja os horários realmente disponíveis.", "Informe seus dados e confirme. Sem criar conta.", "Receba a confirmação e um lembrete antes da consulta. Remarque pelo link seguro, se precisar."].map((t, i) => (
-              <li key={i} className="card"><span className="font-serif text-3xl text-lav-500">{i + 1}</span><p className="mt-2">{t}</p></li>
+              <li key={i} className="card"><span className="font-[family-name:var(--font-display)] text-4xl text-lav-500">{i + 1}</span><p className="mt-2">{t}</p></li>
             ))}
           </ol>
           {p.how_it_works && <p className="mt-6 whitespace-pre-line">{p.how_it_works}</p>}

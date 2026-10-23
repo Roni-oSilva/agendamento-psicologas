@@ -1,30 +1,35 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
+@import "@fontsource/anton";
 
 @theme {
-  --color-sage-50: #f4f7f4;
-  --color-sage-100: #e6ede6;
-  --color-sage-200: #cddccd;
-  --color-sage-300: #a9c1aa;
-  --color-sage-500: #6b8f6e;
-  --color-sage-600: #557857;
-  --color-sage-700: #44603f;
-  --color-sage-800: #364d35;
-  --color-sand-50: #fbf8f3;
-  --color-sand-100: #f5efe4;
-  --color-sand-200: #ebe0cc;
-  --color-lav-100: #ece8f6;
-  --color-lav-200: #d9d2ee;
-  --color-lav-500: #8b7cc0;
-  --color-lav-700: #5e4f97;
-  --color-ink: #26302a;
-  --color-ink-soft: #4d5a52;
-  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-sage-50: #f3f3f4;
+  --color-sage-100: #e7e7e9;
+  --color-sage-200: #d2d2d6;
+  --color-sage-300: #a9a9b0;
+  --color-sage-500: #5b5b63;
+  --color-sage-600: #3a3a40;
+  --color-sage-700: #1b1b1d;
+  --color-sage-800: #000000;
+  --color-sand-50: #f1f1f2;
+  --color-sand-100: #e9e9eb;
+  --color-sand-200: #d9d9dd;
+  --color-lav-100: #f6ecdc;
+  --color-lav-200: #ecd5ad;
+  --color-lav-500: #c9954f;
+  --color-lav-700: #8a5e1f;
+  --color-ink: #17171a;
+  --color-ink-soft: #55555d;
+  --font-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+  --font-serif: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 html { scroll-behavior: smooth; }
 body { background: var(--color-sand-50); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
-h1, h2, h3 { font-family: var(--font-serif); letter-spacing: -0.01em; }
+h1, h2 { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.015em; line-height: 1.02; }
+h3, h4 { font-family: var(--font-sans); font-weight: 600; letter-spacing: -0.01em; }
+body { background: linear-gradient(180deg, #e4e4e6 0, #f4f4f5 360px, #f4f4f5 100%) no-repeat, var(--color-sand-50); }
 
 :focus-visible { outline: 3px solid var(--color-lav-500); outline-offset: 2px; border-radius: 6px; }
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
@@ -34,11 +39,11 @@ h1, h2, h3 { font-family: var(--font-serif); letter-spacing: -0.01em; }
 }
 
 @layer components {
-  .btn-primary { @apply btn bg-sage-700 text-white hover:bg-sage-800; }
+  .btn-primary { @apply btn bg-sage-700 text-white shadow-[inset_0_-2px_0_var(--color-lav-500)] hover:bg-sage-600; }
   .btn-secondary { @apply btn border border-sage-300 bg-white text-sage-800 hover:bg-sage-50; }
   .btn-danger { @apply btn border border-red-300 bg-white text-red-800 hover:bg-red-50; }
   .btn-sm { @apply min-h-10 rounded-xl px-3 py-2 text-sm; }
-  .card { @apply rounded-3xl border border-sage-100 bg-white p-5 shadow-[0_1px_2px_rgba(38,48,42,.04)] sm:p-7; }
+  .card { @apply rounded-3xl border border-sage-100 bg-white p-5 shadow-[0_8px_24px_-12px_rgba(0,0,0,.18)] sm:p-7; }
   .field { @apply block w-full rounded-xl border border-sage-300 bg-white px-4 py-3 text-base text-ink placeholder:text-ink-soft/60; }
   .label { @apply mb-1.5 block text-sm font-medium text-ink; }
   .hint { @apply mt-1 text-sm text-ink-soft; }

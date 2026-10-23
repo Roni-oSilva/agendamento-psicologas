@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Conheça a profissional e agende sua consulta online, a qualquer hora.",
   robots: { index: true, follow: true },
 };
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#44603f" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#1b1b1d" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

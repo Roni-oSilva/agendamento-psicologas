@@ -19,7 +19,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
     <div className="min-h-screen lg:grid lg:grid-cols-[240px_1fr]">
       <aside className="border-b border-sage-100 bg-white lg:min-h-screen lg:border-b-0 lg:border-r">
         <div className="flex items-center justify-between gap-3 px-4 py-3 lg:block">
-          <Link href="/admin" className="font-serif text-lg">{s.professional.display_name}</Link>
+          <Link href="/admin" className="text-sm font-light uppercase tracking-[0.3em]">{s.professional.display_name}</Link>
           <form action={out} className="lg:mt-1"><button className="text-sm text-ink-soft underline">Sair</button></form>
         </div>
         <details className="lg:open px-2 pb-2 lg:block" open>
