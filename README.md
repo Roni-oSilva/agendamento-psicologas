@@ -60,3 +60,11 @@ Cobrem: sobreposição total/parcial, consecutivas, buffer, duração por servi�
 ## Estado e limitações conhecidas (honesto)
 Implementado e testado: motor de agenda, anti-conflito, remarcação/cancelamento, histórico, fila/worker, WhatsApp Cloud API (não validada contra a Meta real: requer credenciais), painel (dashboard, agenda dia/semana/mês, pacientes, serviços, disponibilidade, bloqueios, portfólio, notificações, auditoria, CSV, busca), recuperação de senha (e-mail via Resend se configurado; sem isso o link só é logado em desenvolvimento).
 **Não implementado**: pagamentos (arquitetura preparada, sem módulo), envio de convites automáticos da lista de espera (a inscrição pública existe; falta o job de convite), upload de foto (usa URL https), verificação de e-mail, Sentry, teste de carga, credenciais WhatsApp por profissional, auto-cadastro de profissionais (criadas via script), publicação em domínio (depende da sua infraestrutura).
+
+## Demonstração funcional
+```bash
+npm run migrate && npm run demo:data     # profissional demo + 12 agendamentos criados pela API real + fila processada (WHATSAPP_MODE=test)
+npm run build && npm start               # em outro terminal: npm run worker
+npm run demo:walkthrough                 # usa o sistema no navegador e salva capturas em docs/demo/
+```
+Login: `demo@exemplo.com.br` / `senhaDemo12345` (apenas demonstração). Página pública: `/psicologa/maria-silva`.

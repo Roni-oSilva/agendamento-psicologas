@@ -4,7 +4,7 @@ import { createProfessional, emailInUse } from "../lib/accounts";
 import { pool, query } from "../lib/db";
 
 /** Cria uma profissional de DEMONSTRAÇÃO. Em produção use: npm run create-professional */
-async function main() {
+export async function seedDemo() {
   await migrate();
   const email = process.env.SEED_EMAIL ?? "demo@exemplo.com.br";
   if (await emailInUse(email)) { console.log("Já existe:", email); return; }
@@ -24,4 +24,4 @@ async function main() {
   await query(`insert into services(professional_id,name,description,duration_minutes,modality,position) values($1,'Primeira consulta (online)','Conversa inicial para conhecermos sua demanda.',60,'online',0)`, [r.professionalId]);
   console.log(`Profissional de demonstração criada.\n  login: ${email}\n  senha: ${password}\n  página: /psicologa/maria-silva`);
 }
-main().then(() => pool().end()).catch((e) => { console.error(e); process.exit(1); });
+if (process.argv[1]?.endsWith("seed.ts")) seedDemo().then(() => pool().end()).catch((e) => { console.error(e); process.exit(1); });
