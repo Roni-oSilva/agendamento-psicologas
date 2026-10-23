@@ -20,7 +20,7 @@ function channels(p: Pat): string[] {
   if (p.contact_preference === "none") return [];
   const ch: string[] = [];
   if (p.contact_preference === "whatsapp") ch.push("whatsapp");
-  if (p.email) ch.push("email"); // e-mail só é efetivamente enviado se o provedor estiver configurado
+  if (p.email && process.env.RESEND_API_KEY) ch.push("email"); // só enfileira e-mail se o provedor estiver configurado
   return ch;
 }
 
